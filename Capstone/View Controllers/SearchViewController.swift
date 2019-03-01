@@ -43,7 +43,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //MarvelClient.search(query: searchText, completion: searchCompleteHandler(movies:error:))
+        MarvelClient.search(query: searchText, completion: searchCompleteHandler(heroes:error:))
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

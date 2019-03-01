@@ -23,10 +23,14 @@ class MarvelClient {
         static let apiKeyParam = "?apikey=\(MarvelClient.apiKey)"
         
         case getCharacters
+        case searchCharacters(String)
         
         var stringValue: String {
             switch self {
-                case .getCharacters: return Endpoints.base + "characters\(createSecurity())"
+                case .getCharacters:
+                    return "\(Endpoints.base)characters\(createSecurity())"
+                case .searchCharacters(let q):
+                    return "\(Endpoints.base)characters\(createSecurity())\(createSearchQuery(q))"
             }
         }
         
@@ -39,6 +43,10 @@ class MarvelClient {
             let hash = "\(ts)\(serverKey)\(apiKey)".md5()
             return "?apikey=\(apiKey)&ts=\(ts)&hash=\(hash)"
         }
+        
+        func createSearchQuery(_ q: String) -> String {
+            return "&nameStartsWith=\(q.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+        }
     }
     
     class func getCharacters(completion: @escaping ([MarvelCharacter], Error?) -> Void) {
@@ -50,6 +58,17 @@ class MarvelClient {
             }
             print(responseObject)
             print(responseObject.code)
+            completion(responseObject.data?.results ?? [], nil)
+        }
+    }
+    
+    class func search(query: String, completion: @escaping ([MarvelCharacter], Error?) -> Void) {
+        taskForGETRequest(url: Endpoints.searchCharacters(query).url, responseType: MarvelResponse.self) {
+            (responseObject, error) in
+            guard let responseObject = responseObject else {
+                completion([], error)
+                return
+            }
             completion(responseObject.data?.results ?? [], nil)
         }
     }
