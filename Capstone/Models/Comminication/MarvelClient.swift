@@ -28,7 +28,7 @@ class MarvelClient {
         var stringValue: String {
             switch self {
                 case .getCharacters:
-                    return "\(Endpoints.base)characters\(createSecurity())"
+                    return "\(Endpoints.base)characters\(createSecurity())&offset=\(createRandomOffset())"
                 case .searchCharacters(let q):
                     return "\(Endpoints.base)characters\(createSecurity())\(createSearchQuery(q))"
             }
@@ -46,6 +46,10 @@ class MarvelClient {
         
         func createSearchQuery(_ q: String) -> String {
             return "&nameStartsWith=\(q.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+        }
+        
+        func createRandomOffset() -> Int {
+            return Int.random(in: 0 ... 1000)
         }
     }
     
@@ -204,7 +208,7 @@ class MarvelClient {
                 return
             }
             do {
-                print(String(decoding: data, as: UTF8.self))
+                //print(String(decoding: data, as: UTF8.self))
                 let responseObject = try JSONDecoder().decode(responseType, from: data)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)

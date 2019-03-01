@@ -84,38 +84,12 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeroTableViewCell" rowHeight="116" id="h6T-mK-bBt">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="116"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeroTableViewCell" id="h6T-mK-bBt">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h6T-mK-bBt" id="o1M-LA-VLw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h6T-mK-bBt" id="o1M-LA-VLw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aEt-Fx-1ET">
-                                                    <rect key="frame" x="15" y="8.5" width="100" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="fsy-XJ-Enb"/>
-                                                        <constraint firstAttribute="height" constant="100" id="hPA-T9-wce"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5N-Ko-ik8">
-                                                    <rect key="frame" x="123" y="11.5" width="237" height="39"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="39" id="UoT-o7-hrl"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="s5N-Ko-ik8" firstAttribute="top" secondItem="o1M-LA-VLw" secondAttribute="topMargin" id="DH2-ik-PP3"/>
-                                                <constraint firstItem="s5N-Ko-ik8" firstAttribute="leading" secondItem="aEt-Fx-1ET" secondAttribute="trailing" constant="8" id="JFk-oJ-x5q"/>
-                                                <constraint firstItem="s5N-Ko-ik8" firstAttribute="trailing" secondItem="o1M-LA-VLw" secondAttribute="trailingMargin" id="Weu-a4-uDM"/>
-                                                <constraint firstItem="aEt-Fx-1ET" firstAttribute="leading" secondItem="o1M-LA-VLw" secondAttribute="leading" constant="15" id="XpU-Mb-stb"/>
-                                                <constraint firstAttribute="bottom" secondItem="aEt-Fx-1ET" secondAttribute="bottom" constant="8" id="aaN-zV-im9"/>
-                                                <constraint firstItem="aEt-Fx-1ET" firstAttribute="top" secondItem="o1M-LA-VLw" secondAttribute="top" constant="8" id="csb-As-yjr"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -145,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORD-VT-N6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8" y="-334.18290854572717"/>
+            <point key="canvasLocation" x="1577" y="-334"/>
         </scene>
         <!--HeroSearch-->
         <scene sceneID="YlD-3m-cAj">

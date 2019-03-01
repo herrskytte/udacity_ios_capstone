@@ -20,15 +20,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = MarvelClient.getCharacters() { heroes, error in
-            if let error = error {
-                print(error)
-            }
-            else {
-                self.heroes = heroes
-                self.tableView.reloadData()
-            }
-        }
+        MarvelClient.getCharacters(completion: searchCompleteHandler(heroes:error:))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,12 +30,26 @@ class SearchViewController: UIViewController {
         }
     }
     
+    func searchCompleteHandler(heroes: [MarvelCharacter], error: Error?){
+        if let error = error {
+            print(error)
+        }
+        else {
+            self.heroes = heroes
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        MarvelClient.search(query: searchText, completion: searchCompleteHandler(heroes:error:))
+        if searchText == "" {
+            MarvelClient.getCharacters(completion: searchCompleteHandler(heroes:error:))
+        }
+        else {
+            MarvelClient.search(query: searchText, completion: searchCompleteHandler(heroes:error:))
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -56,11 +62,6 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
-    }
-    
-    func searchCompleteHandler(heroes: [MarvelCharacter], error: Error?){
-        self.heroes = heroes
-        self.tableView.reloadData()
     }
 }
 
