@@ -11,21 +11,33 @@ import Foundation
 class MarvelClient {
     
     static let apiKey = "267b7e797ccd15b61bcdcda5583e33da"
+    static let serverKey = "707b2fc5998003196709ba0591c2d24b26227ec3"
     
     enum Endpoints {
         static let base = "https://gateway.marvel.com:443/v1/public/"
+        static let securityParam = { () -> String in
+            let ts = NSDate().timeIntervalSince1970.description
+            let hash = "\(ts)\(serverKey)\(apiKey)".md5()
+            return "?apikey=\(apiKey)&ts=\(ts)&hash=\(hash)"
+        }
         static let apiKeyParam = "?apikey=\(MarvelClient.apiKey)"
         
         case getCharacters
         
         var stringValue: String {
             switch self {
-                case .getCharacters: return Endpoints.base + "characters" + Endpoints.apiKeyParam
+                case .getCharacters: return Endpoints.base + "characters\(createSecurity())"
             }
         }
         
         var url: URL {
             return URL(string: stringValue)!
+        }
+        
+        func createSecurity() -> String {
+            let ts = NSDate().timeIntervalSince1970.description
+            let hash = "\(ts)\(serverKey)\(apiKey)".md5()
+            return "?apikey=\(apiKey)&ts=\(ts)&hash=\(hash)"
         }
     }
     
@@ -173,6 +185,7 @@ class MarvelClient {
                 return
             }
             do {
+                print(String(decoding: data, as: UTF8.self))
                 let responseObject = try JSONDecoder().decode(responseType, from: data)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)

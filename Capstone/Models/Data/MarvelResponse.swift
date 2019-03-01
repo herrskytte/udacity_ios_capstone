@@ -9,7 +9,7 @@
 import Foundation
 
 struct MarvelResponse: Codable {
-    let code: String
+    let code: Int
     let data: MarvelData?
 }
 
@@ -24,7 +24,7 @@ struct MarvelData: Codable {
 struct MarvelCharacter: Codable {
     let id: Int
     let name: String
-    let results: [MarvelData]
+    let thumbnail: Thumbnail
 }
 
 struct Thumbnail: Codable {
