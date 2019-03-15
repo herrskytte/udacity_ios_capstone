@@ -25,8 +25,8 @@ class SearchViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
-            //let detailVC = segue.destination as! MovieDetailViewController
-            //detailVC.movie = movies[selectedIndex]
+            let detailVC = segue.destination as! HeroDetailsViewController
+            detailVC.hero = heroes[selectedIndex]
         }
     }
     
@@ -83,7 +83,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         cell.heroNameLabel.text = "\(hero.name)"
 
         MarvelClient.getImage(imgPath: "\(hero.thumbnail.path).\(hero.thumbnail.ext)") { (data, errror) in
-        //MarvelClient.getImage(imgPath: hero.thumbnail.path) { (data, errror) in
             if let data = data {
                 cell.heroImageView.image = UIImage(data: data)
                 cell.setNeedsLayout()

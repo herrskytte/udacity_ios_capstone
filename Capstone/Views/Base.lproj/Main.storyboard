@@ -10,42 +10,75 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Second-->
-        <scene sceneID="wg7-f3-ORb">
+        <!--My Heroes-->
+        <scene sceneID="dmT-Lm-UcE">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                <collectionViewController id="nfF-ZV-dN5" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="6Sa-Ah-UhY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="87" y="312" width="201.5" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="363" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lq7-x9-P9l">
+                            <size key="itemSize" width="165" height="151"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="heroPhoto" id="zwT-Ul-urZ">
+                                <rect key="frame" x="0.0" y="0.0" width="165" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="165" height="151"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="haJ-Ye-SKB">
+                                            <rect key="frame" x="0.0" y="0.0" width="165" height="151"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="haJ-Ye-SKB" secondAttribute="trailing" id="L06-5n-GjY"/>
+                                    <constraint firstAttribute="bottom" secondItem="haJ-Ye-SKB" secondAttribute="bottom" id="dtZ-x4-dvn"/>
+                                    <constraint firstItem="haJ-Ye-SKB" firstAttribute="top" secondItem="zwT-Ul-urZ" secondAttribute="top" id="ezc-3Q-BBd"/>
+                                    <constraint firstItem="haJ-Ye-SKB" firstAttribute="leading" secondItem="zwT-Ul-urZ" secondAttribute="leading" id="ipa-f8-8BW"/>
+                                </constraints>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="nfF-ZV-dN5" id="6th-Np-rGH"/>
+                            <outlet property="delegate" destination="nfF-ZV-dN5" id="8Ef-r0-hG3"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="My Heroes" id="xYs-WF-Mhz"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qG4-dw-Oyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="1576.8" y="410.64467766116945"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="ubU-1u-3VC">
+            <objects>
+                <navigationController id="D8o-Yy-GEn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="bGv-2k-l2B"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="grB-e6-sLq">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.94117647059999998" green="0.074509803920000006" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nfF-ZV-dN5" kind="relationship" relationship="rootViewController" id="p2i-gu-Eed"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uh1-zd-g0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="411"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -58,12 +91,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="ubc-BK-zAi" kind="relationship" relationship="viewControllers" id="TCd-JF-a4b"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="D8o-Yy-GEn" kind="relationship" relationship="viewControllers" id="kBI-Bu-2zB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-185" y="0.0"/>
         </scene>
         <!--Search-->
         <scene sceneID="ITZ-H9-p3Z">
@@ -75,6 +108,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="5ev-nA-k1G">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <color key="barTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="toh-JR-Iev" id="aiW-P2-kkG"/>
@@ -82,7 +116,7 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pS9-MA-dZF">
                                 <rect key="frame" x="0.0" y="120" width="375" height="498"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeroTableViewCell" rowHeight="116" id="h6T-mK-bBt" customClass="HeroCell" customModule="Capstone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="116"/>
@@ -104,7 +138,7 @@
                                                         <constraint firstAttribute="height" constant="39" id="UoT-o7-hrl"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -117,6 +151,7 @@
                                                 <constraint firstItem="aEt-Fx-1ET" firstAttribute="top" secondItem="o1M-LA-VLw" secondAttribute="top" constant="8" id="csb-As-yjr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="heroImageView" destination="aEt-Fx-1ET" id="yht-NJ-QRT"/>
                                             <outlet property="heroNameLabel" destination="s5N-Ko-ik8" id="MBu-jD-WjS"/>
@@ -129,7 +164,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5ev-nA-k1G" firstAttribute="leading" secondItem="Dvy-fL-Xn2" secondAttribute="leading" id="8iN-xL-nHl"/>
                             <constraint firstItem="Dvy-fL-Xn2" firstAttribute="trailing" secondItem="pS9-MA-dZF" secondAttribute="trailing" id="9lV-E9-ws8"/>
@@ -145,11 +180,52 @@
                     <connections>
                         <outlet property="searchBar" destination="5ev-nA-k1G" id="vAU-g4-klz"/>
                         <outlet property="tableView" destination="pS9-MA-dZF" id="gl3-rx-SVp"/>
+                        <segue destination="LrD-qb-uuY" kind="show" identifier="showDetail" id="zko-rz-dR4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORD-VT-N6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1576.8" y="-334.18290854572717"/>
+        </scene>
+        <!--Hero Details View Controller-->
+        <scene sceneID="PMq-E3-wzO">
+            <objects>
+                <viewController id="LrD-qb-uuY" customClass="HeroDetailsViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="seF-Zw-2HD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_superhero" translatesAutoresizingMaskIntoConstraints="NO" id="BpI-KY-am8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hulk Hogan" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIg-xS-ubS">
+                                <rect key="frame" x="16" y="80" width="343" height="305"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.94117647059999998" green="0.074509803920000006" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jZO-8i-DW1" firstAttribute="trailing" secondItem="cIg-xS-ubS" secondAttribute="trailing" constant="16" id="7OW-aO-n8n"/>
+                            <constraint firstItem="BpI-KY-am8" firstAttribute="bottom" secondItem="jZO-8i-DW1" secondAttribute="bottom" id="eYY-e2-JHa"/>
+                            <constraint firstItem="BpI-KY-am8" firstAttribute="trailing" secondItem="jZO-8i-DW1" secondAttribute="trailing" id="lzh-XD-k4S"/>
+                            <constraint firstItem="BpI-KY-am8" firstAttribute="leading" secondItem="jZO-8i-DW1" secondAttribute="leading" id="p9n-mw-q5q"/>
+                            <constraint firstItem="cIg-xS-ubS" firstAttribute="leading" secondItem="jZO-8i-DW1" secondAttribute="leading" constant="16" id="qQr-RL-Xvs"/>
+                            <constraint firstItem="cIg-xS-ubS" firstAttribute="top" secondItem="jZO-8i-DW1" secondAttribute="top" constant="16" id="vaj-ey-R6d"/>
+                            <constraint firstItem="BpI-KY-am8" firstAttribute="top" secondItem="jZO-8i-DW1" secondAttribute="top" id="xaC-X1-5gk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jZO-8i-DW1"/>
+                    </view>
+                    <connections>
+                        <outlet property="heroNameLabel" destination="cIg-xS-ubS" id="8Iu-iA-wm5"/>
+                        <outlet property="imageView" destination="BpI-KY-am8" id="7wl-Ow-3Lu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qag-0g-uLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2440.8000000000002" y="-35.532233883058474"/>
         </scene>
         <!--HeroSearch-->
         <scene sceneID="YlD-3m-cAj">
@@ -159,6 +235,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tEr-EU-vHv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.94117647058823528" green="0.074509803921568626" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="toh-JR-Iev" kind="relationship" relationship="rootViewController" id="Ebl-jS-5PN"/>
@@ -172,6 +256,5 @@
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="placeholder_superhero" width="640" height="450"/>
-        <image name="second" width="30" height="30"/>
     </resources>
 </document>
