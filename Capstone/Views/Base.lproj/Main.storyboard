@@ -84,14 +84,14 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeroTableViewCell" rowHeight="116" id="h6T-mK-bBt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeroTableViewCell" rowHeight="116" id="h6T-mK-bBt" customClass="HeroCell" customModule="Capstone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h6T-mK-bBt" id="o1M-LA-VLw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aEt-Fx-1ET">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_superhero" translatesAutoresizingMaskIntoConstraints="NO" id="aEt-Fx-1ET">
                                                     <rect key="frame" x="15" y="8.5" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="fsy-XJ-Enb"/>
@@ -117,6 +117,10 @@
                                                 <constraint firstItem="aEt-Fx-1ET" firstAttribute="top" secondItem="o1M-LA-VLw" secondAttribute="top" constant="8" id="csb-As-yjr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="heroImageView" destination="aEt-Fx-1ET" id="yht-NJ-QRT"/>
+                                            <outlet property="heroNameLabel" destination="s5N-Ko-ik8" id="MBu-jD-WjS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -167,6 +171,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="placeholder_superhero" width="640" height="450"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

@@ -77,6 +77,23 @@ class MarvelClient {
         }
     }
     
+    class func getImage(imgPath: String, completion: @escaping (Data?, Error?) -> Void) {
+        print("Downloading image \(imgPath)")
+        let task = URLSession.shared.dataTask(with: URL(string: imgPath)!) {
+            (data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                completion(data, nil)
+            }
+        }
+        task.resume()
+    }
+    
     /*
     class func getFavorites(completion: @escaping ([Movie], Error?) -> Void) {
         taskForGETRequest(url: Endpoints.getFavorites.url, responseType: MovieResults.self) { (responseObject, error) in

@@ -76,12 +76,22 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HeroTableViewCell")!
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeroTableViewCell") as! HeroCell
+   
         let hero = heroes[indexPath.row]
         
-        cell.textLabel?.text = "\(hero.name)"
-        
+        cell.heroNameLabel.text = "\(hero.name)"
+
+        MarvelClient.getImage(imgPath: "\(hero.thumbnail.path).\(hero.thumbnail.ext)") { (data, errror) in
+        //MarvelClient.getImage(imgPath: hero.thumbnail.path) { (data, errror) in
+            if let data = data {
+                cell.heroImageView.image = UIImage(data: data)
+                cell.setNeedsLayout()
+            }
+            if let errror = errror {
+                print(errror)
+            }
+        }
         return cell
     }
     
