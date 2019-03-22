@@ -3,7 +3,7 @@
 //  Capstone
 //
 //  Source: https://www.quora.com/How-do-you-generate-an-MD5-hash-in-Swift
-//
+//  Used to create MD5 string for security in Marvel API
 
 extension String {
 
