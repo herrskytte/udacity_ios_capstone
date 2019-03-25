@@ -12,6 +12,7 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var heroes = [MarvelCharacter]()
     
@@ -20,6 +21,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.isHidden = false
         MarvelClient.getCharacters(completion: searchCompleteHandler(heroes:error:))
     }
     
@@ -31,13 +33,23 @@ class SearchViewController: UIViewController {
     }
     
     func searchCompleteHandler(heroes: [MarvelCharacter], error: Error?){
+        activityIndicator.isHidden = true
         if let error = error {
             print(error)
+            showAlert("Sorry, but the app could not download your heroes: \(error.localizedDescription)")
         }
         else {
             self.heroes = heroes
             self.tableView.reloadData()
         }
+    }
+    
+    fileprivate func showAlert(_ errorText: String) {
+        let alertController = UIAlertController(title: "Ooops", message:
+            errorText, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -45,9 +57,11 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
+            activityIndicator.isHidden = false
             MarvelClient.getCharacters(completion: searchCompleteHandler(heroes:error:))
         }
         else {
+            activityIndicator.isHidden = false
             MarvelClient.search(query: searchText, completion: searchCompleteHandler(heroes:error:))
         }
     }

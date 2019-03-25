@@ -171,21 +171,27 @@
                                     <outlet property="delegate" destination="toh-JR-Iev" id="Yhd-te-2AD"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Rb9-v6-lUM">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Rb9-v6-lUM" firstAttribute="centerY" secondItem="sPL-uw-LpG" secondAttribute="centerY" id="4Ho-fU-jyr"/>
                             <constraint firstItem="5ev-nA-k1G" firstAttribute="leading" secondItem="Dvy-fL-Xn2" secondAttribute="leading" id="8iN-xL-nHl"/>
                             <constraint firstItem="Dvy-fL-Xn2" firstAttribute="trailing" secondItem="pS9-MA-dZF" secondAttribute="trailing" id="9lV-E9-ws8"/>
                             <constraint firstItem="Dvy-fL-Xn2" firstAttribute="trailing" secondItem="5ev-nA-k1G" secondAttribute="trailing" id="BcH-yi-Wl1"/>
                             <constraint firstItem="Dvy-fL-Xn2" firstAttribute="bottom" secondItem="pS9-MA-dZF" secondAttribute="bottom" id="UFv-Ab-TN7"/>
                             <constraint firstItem="pS9-MA-dZF" firstAttribute="top" secondItem="Dvy-fL-Xn2" secondAttribute="top" constant="56" id="Var-5c-5Fv"/>
                             <constraint firstItem="5ev-nA-k1G" firstAttribute="top" secondItem="Dvy-fL-Xn2" secondAttribute="top" id="Wec-Ee-6Ka"/>
+                            <constraint firstItem="Rb9-v6-lUM" firstAttribute="centerX" secondItem="sPL-uw-LpG" secondAttribute="centerX" id="rtI-Kb-Lwp"/>
                             <constraint firstItem="pS9-MA-dZF" firstAttribute="leading" secondItem="Dvy-fL-Xn2" secondAttribute="leading" id="zYw-Fc-O40"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dvy-fL-Xn2"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="k21-Eh-0Ji"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Rb9-v6-lUM" id="P8f-4V-7xP"/>
                         <outlet property="searchBar" destination="5ev-nA-k1G" id="vAU-g4-klz"/>
                         <outlet property="tableView" destination="pS9-MA-dZF" id="gl3-rx-SVp"/>
                         <segue destination="LrD-qb-uuY" kind="show" identifier="showDetail" id="zko-rz-dR4"/>
